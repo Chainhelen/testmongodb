@@ -54,10 +54,29 @@ if ('development' == app.get('env')) {
 
 app.get('/', routes.index);
 app.post('/', function(req, res) {
+	var User = require('./models/user');
+	var user = {
+		username:'',
+		password:''
+	}/*
+	User.save(req,function(err){
+		if(err){
+			console.log('n');
+		}else{
+			console.log('n2');
+		}
+	})*/
+	User.findByName(req.body.username,function(err,obj){
+		if(err){
+			console.log("findn");
+		}
+		console.log(obj);
+		console.log(obj.password);
+	});/*
 	var user = {
 		username: 'admin',
 		password: 'admin'
-	};
+	};*/
 	if (req.body.username === user.username && req.body.password === user.password) {
 		req.session.user = user;
 		res.redirect('/users');
@@ -67,9 +86,9 @@ app.post('/', function(req, res) {
 	});
 })
 app.get('/users', user.list);
-app.all('/', function() {
-
-})
+app.all('/*', function(req, res){
+		res.render('index',{title:'error'});
+});
 
 http.createServer(app).listen(app.get('port'), function() {
 	console.log('Express server listening on port ' + app.get('port'));

@@ -1,11 +1,9 @@
 var mongoose = require('mongoose');
-var Schema = mongoose.Schemea;
-var dbURL = 'mongodb://mongodb://localhost:27018/test';
+var dbURL = 'mongodb://mongodb://localhost:27017/test';
+mongoose.connect(dbURL);
 
-mongoose.connection.on('connected', function() {
-	console.log('Mongoose connected on' + dbURL);
-})
-
+console.log('Mongoose connected on' + dbURL);
+/*
 mongoose.connection.on('error', function(err) {
 	console.log('Mongoose connection error: ' + err);
 });
@@ -17,5 +15,5 @@ process.on('SIGINT', function() {
 		console.log('Mongoose disconnected through app termination');
 		process.exit(0);
 	});
-});
-module.exports = db;
+});*/
+exports.mongoose = mongoose;
