@@ -1,8 +1,24 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title><%= title %></title>
+    <title>Chainhelen</title>
 		<link rel='stylesheet' href='/stylesheets/style.css' />
+		<style>
+			body{
+				background-color:#10A296;
+			}
+			.title{
+				color:white;
+				font-size:4em;
+			}
+			h1{
+				color:white;
+				letter-spacing: 8px;
+			}
+			.hide{
+				opacity: 0;	
+			}
+		</style>
 		<script src="javascripts/jquery.js"></script>
 		<script>
 			$(document).ready(function(){
@@ -15,9 +31,9 @@
 		</script>
   </head>
   <body>
-    <h1><%= title %></h1>
-		<p>Welcome to <%= title %></p>
-		<form class="form-horizontal" method="post">
+		<h1 class="title"><%= title %></h1>
+		<h1><%= think %></h1>
+		<form class="hide" method="post">
 				<label class="control-label" for="username">用户名</label>
 				<input type="text" name="username" value="admin">
 				<label for="password">密码</label>

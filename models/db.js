@@ -1,5 +1,5 @@
 var mongoose = require('mongoose');
-var dbURL = 'mongodb://mongodb://localhost:27017/test';
+var dbURL = 'mongod://localhost/test';
 mongoose.connect(dbURL);
 
 console.log('Mongoose connected on' + dbURL);
