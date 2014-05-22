@@ -16,17 +16,23 @@
 			  background-image: -webkit-radial-gradient(circle,hsla(120,70%,60%,.9),hsla(360,60%,60%,.9));
 				background-image: radial-gradient(circle,#FFFFFF,#ADA1A1);
 			}
-			.bg h1{
-				left:-1000px;
-				font-size:4em;
+			.arrow{
+				-webkit-transition-property:all;
+				-webkit-transition-duration:1.5s;
 				top:320px;
 				position:relative;
+			}
+			.bg h1{
+				position:relative;
+				left:-1000px;
+				font-size:4em;
 				font-family:Arial;
 			}
 		</style>
 		<script src="javascripts/jquery.js"></script>
 		<script>
 			$(document).ready(function(){
+				$("html,body").css({"scrollTop":0});
 				$("html,body").animate({scrollTop:50},1000);
 			})
 			$(window).load(function(){
@@ -38,9 +44,11 @@
 					function () {$(".bg h1").animate({"left":"0px"},  200, next)},
 					function () {setTimeout(function(){$(".bg h1").fadeOut(1000,next)},1000)},
 					function () {$(".bg h1").html("Welcome to My'world");next()},
-					function () {$(".bg h1").fadeIn(2000);next()},
-					function () {$(".bg h1").animate({"top":"-100px"},1500)}
-				]
+					function () {$(".bg h1").fadeIn(2000, next);},
+					function () {$(".arrow").css({"-webkit-transform": "rotate(720deg) scale(0.1)"});
+							$(".arrow").css({"opacity":0});}
+//					function() {$(".arrow").css({"opacity":0});}
+			]
 
 				$(document).queue("first", FUNC);
 				setTimeout(function(){
@@ -51,7 +59,9 @@
 	</head>
 	<body>
 		<div class="bg">
-			<h1>hello world</h1>	
+			<div class="arrow">
+				<h1>hello world</h1>	
+			</div>
 		</div>
 		<div class="show">
 
