@@ -4,7 +4,7 @@
  */
 
 exports.list = function(req, res){
-  res.send("respond with a resource");
+  res.render('welcome');
 };
 
 exports.Auth = function(req, res, next){
