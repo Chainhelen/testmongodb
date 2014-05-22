@@ -32,7 +32,7 @@ app.use(express.cookieSession({
 app.use(express.session({
 	secret: 'fens.me',
 	store: new SessionStore({
-		url: "mongodb://localhost/test",
+		url: "mongodb://root:root@ds051838.mongolab.com:51838/cookie",
 		interval: 120000
 	}),
 	cookie: {
